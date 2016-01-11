@@ -27,7 +27,7 @@
 	self = [super init];
 	if (self)
 	{
-		self.marks = [NSArray array];
+		self.marks = marks;
 	}
 	return self;
 }
@@ -38,9 +38,9 @@
 
 -(BOOL)isValidMarks
 {
-	for (int i = 0; i < self.marks.count-1; i++)
+	for (int i = 0; i <= self.marks.count-1; i++)
 	{
-		if ([self.marks[0] integerValue] > 5)
+		if ([self.marks[i] integerValue] > 5)
 			return NO;
 	}
 	
@@ -63,9 +63,9 @@
 -(BOOL)isStipendia
 {
 	double sum = 0;
-	for (int i = 0; i < self.marks.count-1; i++)
+	for (int i = 0; i <= self.marks.count-1; i++)
 		sum += [self.marks[i] doubleValue];
-	return (sum / self.marks.count) > 4.0;
+	return (sum / self.marks.count) >= 4.0;
 }
 
 
